@@ -23,3 +23,14 @@ for (let bicycle of bicycles) {
 }
 
 console.log(minWeight);
+
+//! Versione con map()
+
+let mini;
+if (bicycles[0].weight) mini = bicycles[0].weight;
+
+const tmpArray = bicycles.map((el) => {
+  const elWeight = el.weight;
+  if (elWeight < mini) mini = elWeight;
+});
+console.log(mini);
