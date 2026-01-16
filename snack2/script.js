@@ -5,11 +5,16 @@ Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
 Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
 
 Generare numeri random al posto degli 0 nelle proprietà “punti” fatti
- e “falli subiti”.
+e “falli subiti”.
 
- Infine, creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti
- e stampiamo tutto in console.
+Infine, creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti
+e stampiamo tutto in console.
 */
+
+//FUNZIONE GENERA NUMERI RANDOM
+function generateRandom(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 const squadre = [
   { name: "TeamA", point: 0, fail: 0 },
@@ -32,6 +37,24 @@ for (let i = 0; i < squadre.length; i++) {
 
 console.table(newArray);
 
-function generateRandom(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+//! Versione con map
+
+const teams = [
+  { name: "Team1" },
+  { name: "Team2" },
+  { name: "Team3" },
+  { name: "Team4" },
+];
+
+for (let team of teams) {
+  team.point = generateRandom(1, 50);
+  team.fail = generateRandom(1, 20);
 }
+
+const otherArr = [];
+teams.map((el) => {
+  const tmpOb = { nome: el.name, falli: el.fail };
+  otherArr.push(tmpOb);
+});
+
+console.table(otherArr);
