@@ -7,9 +7,9 @@ Stampare a schermo la bici con peso minore.
 
 const bicycles = [
   { name: "MTB", weight: 7.5 },
-  { name: "Elettrica", weight: 8 },
-  { name: "Da corsa", weight: 3 },
-  { name: "Graziella", weight: 10.4 },
+  { name: "elettrica", weight: 8 },
+  { name: "da corsa", weight: 3 },
+  { name: "Graziella", weight: 12 },
 ];
 
 //Assegno alla variabile il peso del primo elemento se esiste
@@ -45,3 +45,21 @@ if (bicycles[0].weight) minimo = bicycles[0].weight;
 
 bicycles.map((el) => (el.weight < minimo ? (minimo = el.weight) : null));
 console.log(minimo);
+
+//! Altro
+
+let minus;
+if (bicycles[0].weight) minus = bicycles[0].weight;
+let outputName = "";
+bicycles.map((el) => {
+  if (el.weight < minus) {
+    minus = el.weight;
+    outputName = el.name;
+  }
+});
+
+sendMessage(minus, outputName);
+
+function sendMessage(peso, nome) {
+  console.log(`La bici con peso minore è la bici ${nome} con ${peso}Kg`);
+}
